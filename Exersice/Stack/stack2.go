@@ -28,12 +28,24 @@ func (s *stack2) pop() string {
 	return ""
 }
 
+func (s *stack2) printFormat() {
+	fmt.Printf("My stack")
+	for i, val := range s.a1 {
+		fmt.Printf("[%v,%s]", i, val)
+
+	}
+	fmt.Println()
+}
+
 func main() {
 	s := stack2{}
 	fmt.Println(s)
 	s.push("m")
 	s.push("l")
 	s.push("k")
+	s.printFormat()
 	fmt.Println(s)
-
+	fmt.Println(s.pop())
+	fmt.Println(s)
+	s.printFormat()
 }
