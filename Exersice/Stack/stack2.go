@@ -31,7 +31,7 @@ func (s *stack2) pop() string {
 func (s *stack2) printFormat() {
 	fmt.Printf("My stack")
 	for i, val := range s.a1 {
-		fmt.Printf("[%v,%s]", i, val)
+		fmt.Printf("[%v:%s]", i, val)
 
 	}
 	fmt.Println()
