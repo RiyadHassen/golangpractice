@@ -9,17 +9,16 @@ func FindAnagrams(dictionary []string, word string) []string {
 		for i := 0; i < len(val); i++ {
 			for j := 0; j < len(word); j++ {
 				if val[i] == word[j] {
+
 					found = true
 					break
 				} else {
 					found = false
+					continue
 				}
 			}
-			if found {
-				anaram = append(anaram, val)
-			}
-
 		}
+
 	}
 	if found {
 		return anaram
@@ -29,8 +28,8 @@ func FindAnagrams(dictionary []string, word string) []string {
 }
 
 func main() {
-	dict := []string{"madam cuire"}
-	w := "radium cam"
+	dict := []string{"madam cuir,madam curi"}
+	w := "radium came"
 	fmt.Println(FindAnagrams(dict, w))
 
 }
