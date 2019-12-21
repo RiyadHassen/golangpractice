@@ -14,7 +14,6 @@ func reverseParen(s string) string {
 
 					if s[j] == ')' {
 						i = j
-						fmt.Println(i, j)
 						break
 					} else {
 						if s[j] == '(' {
