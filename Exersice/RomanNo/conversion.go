@@ -12,13 +12,17 @@ func encode(n int) (bool, string) {
 		"I", "IV", "V", "IX",
 		"X", "XL", "L", "XC",
 		"C", "CD", "D", "CM", "M"}
-	for i := len(decimal); i > 0; i-- {
-		if decimal[i] <= n {
-			romrep += roman[i]
-			n -= decimal[i]
+	for n > 0 {
+		for i := len(decimal) - 1; i >= 0; i-- {
+			if decimal[i] <= n {
+				romrep += roman[i]
+				n -= decimal[i]
+			}
 		}
 	}
+
 	if roman != nil {
+		encoded = true
 		return encoded, romrep
 	} else {
 		return encoded, romrep
@@ -27,6 +31,6 @@ func encode(n int) (bool, string) {
 }
 
 func main() {
-	r, e := encode(1998)
+	r, e := encode(1990)
 	fmt.Println(r, e)
 }
