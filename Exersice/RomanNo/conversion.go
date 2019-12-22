@@ -33,21 +33,19 @@ func encode(n int) (bool, string) {
 }
 func decode(str string) (bool, int) {
 
-	roman := []string{
-		"I", "IV", "V", "IX",
-		"X", "XL", "L", "XC",
-		"C", "CD", "D", "CM", "M"}
 	num := 0
 
-	for i := 0; i < len(str)-1; i++ {
-		for j := 0; j < len(roman); j++ {
+	for i := 0; i < len(str); i++ {
+		if i+1 > len(str) {
 			if relateValue(string(str[i])) > relateValue(string(str[i+1])) {
 				num += relateValue(string(str[i]))
 			} else {
-				num -= relateValue(string(str[i]))
-				num += relateValue(string(str[i+1]))
+				num += relateValue(string(str[i+1])) - relateValue(string(str[i]))
 			}
+		} else {
+			num += relateValue(string(str[i]))
 		}
+
 	}
 	if num > 0 {
 		return true, num
